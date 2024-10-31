@@ -1,0 +1,275 @@
+\documentclass[
+../../NLP4W_Summary.tex,
+]
+{subfiles}
+    
+\externaldocument[ext:]{../../NLP4W_Summary.tex}
+% Set Graphics Path, so pictures load correctly
+\graphicspath{{../../}}
+
+\begin{document}
+\section{Basics}
+The web itself is an \textbf{application area} of NLP. 
+
+\begin{greenbox}[Web Applications of NLP]
+    \begin{itemize}
+        \item Search Engines
+        \item Spelling Correction
+        \item Machine Translation
+        \item Speech Recognition
+        \item Plagiarism Detection
+        \item Summarization
+        \item Diachronic Analysis (Use of terms over time)
+        \item Text Generators (LLMs)
+    \end{itemize}
+\end{greenbox}
+
+The web also lends itself as a \textbf{resource} for improving NLP.
+
+\begin{greenbox}
+    [Web as a resource]
+    \begin{itemize}
+        \item Web as a corpus
+        \item Analysis of web content, especially knowledge repositories
+        \begin{itemize}
+            \item Wikipedia
+            \item Wiktionary
+            \item etc.
+        \end{itemize}
+        \item Recognising synonyms, paraphrases etc.
+    \end{itemize}
+\end{greenbox}
+
+Some typical challenges for NLP are:
+
+\begin{greenbox}
+    [Challenges for NLP]
+    \begin{itemize}
+        \item Removal of noise (duplicates, typos, etc.)
+        \item Quality Assessment of content
+        \item Integration of heterogeneous and scattered content (Content from different sources, regarding the same topic)
+        \item Error handeling (spelling, grammar, syntax etc.)
+        \item "Clean" data (Errors, emoticons, abbreviations,etc.)
+    \end{itemize}
+\end{greenbox}
+
+\subsection{Analytic Linguistics in NLP}
+Just how natural language is composed of different linguistic elements which differ from one linguistic viewpoint to the others.
+
+\begin{greenbox}
+    [Linguistic Analysis Levels]
+    \begin{itemize}
+        \item Phonetics and Phonology
+        \item Segmentation
+        \item Morphology
+        \item Syntax
+        \item Semantics
+        \item Pragmatics and Discourse
+    \end{itemize}
+\end{greenbox}
+
+\subsubsection{Phonetics and Phonology}
+Phonetics and Phonology are Aspects that are concerned with the speech sounds of the language.
+Hereby Phonetics are concerned with the \textbf{physical} Aspects, such as articulatory (production of sound, articulation), acoustic (transmission of sound, amplitude, frequency etc.) and auditory (sound perception/reception).
+Phonology is concerned with the \textbf{functional} aspects of speech, such as how different sounds carry different meanings and how these sounds can change the meaning.
+
+One especially important aspect of this are \textbf{homophones}, words which are pronounced the same but have different meanings. (For example, \textit{night} and \textit{knight})
+
+\subsubsection{Segmentation}
+Segmentation is used to split up an input stream into an ordered sequence of units called \textbf{tokens}. The process is called \textbf{Tokenization}, which can be done by a \textbf{tokenizer} system.
+Tokens can correspond to a word form, sub-word units or punctuation. 
+They do NOT have to be only one word, for example with names: "New York" can be one token.
+They may be subject to subsequent morphological analysis.
+
+Example: John likes Mary and Mary likes John. $\rightarrow$ \{"John", "likes", "Mary", "and", "Mary", "likes", "John", "."\}
+
+Tokenization however is not as simple as it seems, as you can't just split them up at specific characters. You also have to take into account the different meanings of the characters, as well as where a token starts and ends.
+\begin{greenbox}
+    [Tokenization Ambiguities]
+    \begin{itemize}
+        \item Period
+        \begin{itemize}
+            \item Periods do not only indicate the end of a sentence
+            \item Can also be:
+            \begin{itemize}
+                \item Part of an abbreviation: R.E.M. (Rapid Eye Movement)
+                \item Numbers: 3.14159
+                \item References to websites and similar: www.wikipedia.com
+                \item etc.
+            \end{itemize}
+            \item In these cases they can not be split up at the period, as its one token.
+            \item Can get even more complicated with combined meanings: When an abbreviation is the last word in a sentence the period is part of the abbreviation but at the same time also the sentence ender and therfore its own token.
+        \end{itemize}
+        \item Whitespace
+        \begin{itemize}
+            \item Do not only seperate words
+            \item Can also be used as part of a name ("New York") or number (245 623)
+        \end{itemize}
+        \item Comma
+        \begin{itemize}
+            \item Do not only seperate sentence parts
+            \item Can also be used as a part of a number (3,14159)
+        \end{itemize}
+        \item Single quotes
+        \begin{itemize}
+            \item Not only used to signal quotations
+            \item Can also be used to signal contractions (don't, you're) or elisions (Moritz' summary)
+            \item In some languages even part of a word
+        \end{itemize}
+        \item Dash -
+        \begin{itemize}
+            \item Not only used to connect words
+            \item Can signal a range (pages 23-45)
+            \item In some languages signals close connection between words
+        \end{itemize}
+    \end{itemize}
+\end{greenbox}
+
+Some words can even be split up into two tokens, which means there is no character seperating them. (Stau\textbf{becken} and \textbf{Staub}ecken)
+
+\newpage
+\subsubsection{Morphology}
+Morphology studies word formation and word forms. Hereby a word is defined as made up by \textbf{morphemes}. A morpheme is the \textbf{smallest unit that still carries meaning}.
+Hereby morphemes are split up into two categories: \textbf{bound} and \textbf{free}. 
+
+\begin{greenbox}
+    [Bases and Affixes: Bound and Free Morphemes]
+    \begin{itemize}
+        \item Free morpheme:
+        \begin{itemize}
+            \item A morpheme which is a word \rightarrow Can stand by itself
+            \item Example: \textit{Housekeeper} \rightarrow Can be split up into \textit{House} and \textit{keeper}. Both can stand by themselves and are therefore free morphemes
+        \end{itemize}
+        \item Bound morpheme:
+        \begin{itemize}
+            \item A morpheme which is not a word \rightarrow Can not stand by itself
+            \item Needs to be used in combination with a free morpheme
+            \item Often called \textbf{Affixes}
+            \item Example: Cats \rightarrow Can be split up into \textit{Cat} and \textit{s}. \textit{Cat} can stand by itself, therefore it's a free morpheme, while \textit{s} cannot, which makes it a bound morpheme.
+        \end{itemize}
+        \item A minimal free morpheme is called a \textbf{stem}. They carry the main meaning of a word.
+        \item Affixes can be added to a stem to alter the meaning
+    \end{itemize}
+\end{greenbox}
+
+\begin{greenbox}
+    [Types of Affixes]
+    \begin{itemize}
+        \item Suffixes
+        \begin{itemize}
+            \item Added to the end of a stem
+            \item Cat + s, nice + ly
+        \end{itemize}
+        \item Prefixes 
+        \begin{itemize}
+            \item Added to the beginning of a stem
+            \item un + true, im + possible
+        \end{itemize}
+        \item Infixes
+        \begin{itemize}
+            \item Added to the middle of a stem
+            \item fan + bloody + tastic
+            \item Not used often in formal language
+        \end{itemize}
+        \item Circumfixes
+        \begin{itemize}
+            \item Added around a stem
+            \item ge + sagt + t
+        \end{itemize}
+    \end{itemize}
+\end{greenbox}
+
+Multiple affixes can be added to stem.
+
+For analysis it is important to find morphological related words. This can be done through \textbf{morphological normalization}. Hereby the goal is to find a representation for related words.
+
+\begin{greenbox}
+    [Methods for Morphological Normalization]
+    \begin{itemize}
+        \item Stemming
+        \begin{itemize}
+            \item Algorithmic approach to strip off endings of words.
+            \item Will not necessarily produce a real word form
+            \item Does not distinguish between inflection and derivation
+            \item Example: 
+            \begin{itemize}
+                \item sitting \rightarrow sitt
+                \item anarchism, anarchy, anarchistic \rightarrow anarchi
+            \end{itemize}
+            \item Stemming is ruled-based, which means that it will be very quick, however it might also yield arbitrary distinctions
+            \item As it is rule-based, it is also prone to errors, like under- and over-stemming \rightarrow removing too little or too much
+            \item \begin{itemize}
+                \item Under-Stemming: adhere \rightarrow adher, adhesion \rightarrow adhes
+                \item Over-Stemming: appendicitis \rightarrow append, append \rightarrow append
+            \end{itemize}
+            \item Another error that can happen is when homographs (Words which are spelled the same but have different meanings) are used.
+            \begin{itemize}
+                \item saw (past. see) vs. saw (Tool)
+                \item Will have the same representation but are totally different
+                \item Stemming cannot solve these problems
+            \end{itemize}
+        \end{itemize}
+        \item Lemmatization
+        \begin{itemize}
+            \item Gets the base form of the word form
+            \item This needs access to lexical data and part of speech tagging
+            \item Due to access to lexical data it can also handle irregular forms
+            \item Not as fast as stemming but more accurate
+            \item Example:
+            \begin{itemize}
+                \item left (verb) \rightarrow leave
+                \item left (noun) \rightarrow left
+                \item indices (noun) \rightarrow index
+                \item saw (verb) \rightarrow see
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}
+\end{greenbox}
+
+\subsubsection{Syntax}
+Syntax refers to the order in which words appear in or the way in which words are arranged. There is a theoretical infinite number of ways in which words can be arranged together, we can discern the meaning anyway.
+
+\begin{greenbox}
+    [Parts of Speech]
+    \begin{itemize}
+        \item N: Noun \rightarrow chair, bird, etc.
+        \item V: Verb \rightarrow walk, run, etc.
+        \item ADJ: Adjective \rightarrow red, fast, etc.
+        \item ADV: Adverb \rightarrow fortunately, slowly, etc.
+        \item P: Preposition \rightarrow in, of, etc.
+        \item Pro: Pronoun \rightarrow he, I, etc.
+        \item Det: Determiner \rightarrow the, a, etc.
+        \item Intj: Interjection \rightarrow oh, wow, etc.
+    \end{itemize}
+\end{greenbox}
+
+We can assign parts of speech to each word in a corpus (POS tagging). Using these we can use Lemmatization to get the base form of a word.
+
+There are some problems with POS tagging though. As words can have different meanings and can represent different parts we can't simply assign each word a part of speech.
+
+These issues can be improved by using different models. The baseline is simply using the most frequent part of speech for a word. Other models are based on probabilistic tagging or rule-based tagging. 
+The most accurate approach to this day are neural approaches, which are about 98\% accurate.
+
+Another topic within syntax is parsing. A sentence can have multiple meanings, as the strucuture itself is ambigous. For example: "I saw the man with a telescope" \rightarrow I saw the man that had a telescope OR I saw the man through a telescope.
+
+\subsubsection{Semantics}
+Semantics study the meaning of words, phrases, sentences etc.
+Further lexical semantics study the meaning of words. 
+
+In semantics lexical ambiguity can cause different interpretations. For example: I hit the ball with the bat \rightarrow I hit the ball with the bat (animal) OR I hit the ball with the bat (sports instrument)
+
+\subsubsection{Pragmatics and Discourse}
+
+Pragmatics are concerned with the purpose of utterances. For example: Simply putting an emphasis on a word can change the meaning of a sentence. I never said she stole my money 
+\begin{itemize}
+    \item \textbf{I} never said she stole my money \rightarrow Someone else said she stole my money
+    \item I \textbf{never} said she stole my money \rightarrow I didn't say that
+    \item I never \textbf{said} she stole my money \rightarrow I might have implied it but never said it
+    \item I never said \textbf{she} stole my money \rightarrow I was not reffering to her
+    \item I never said she \textbf{stole} my money \rightarrow I was not reffering to stealing
+    \item I never said she stole \textbf{my} money \rightarrow It was not my money
+    \item I never said she stole my \textbf{money} \rightarrow She didn't steal money
+\end{itemize}
+
+So the intended meaning of an utterance can be different than the lexical meaning of the utterance.
+\end{document}

@@ -1,0 +1,50 @@
+\documentclass[
+../../NLP4W_Summary.tex,
+]
+{subfiles}
+    
+\externaldocument[ext:]{../../NLP4W_Summary.tex}
+% Set Graphics Path, so pictures load correctly
+\graphicspath{{../../}}
+
+\begin{document}
+\section{Text Classification}
+Text classification is an important part of NLP4Web. It has many applications and it's especially important to classify text to improve the date of the models.
+
+\begin{greenbox}
+    [Examples of Text Classification]
+    \begin{itemize}
+        \item Spam Detection
+        \item Sentiment Analysis
+        \item Topic Labeling
+        \item Age/Gender Identification
+        \item Authorship Identification
+        \item Language Identification
+    \end{itemize}
+\end{greenbox}
+
+Some approaches to text classification are:
+
+\begin{greenbox}
+    [Approaches to Text Classification]
+    \begin{itemize}
+        \item Rule-Based
+        \begin{itemize}
+            \item Rules are "handcrafted" and human comprehensible
+            \item As such precision can be high
+            \item However it might also be very expensive to build and maintain as it needs to cover a lot of cases and handle changing languages
+        \end{itemize}
+        \item Supervised Learning
+        \begin{itemize}
+            \item Processes by which tagged/labeled data is picked and fed into an algorithm that then builds a model capaable of approximating text
+            \item Can be human comprehensible - but doesn't need to be
+            \item Easier to meaintain and fairly accurate
+            \item Needs a lot of data
+        \end{itemize}
+        \item Unsupervised Learning (Deep Learning)
+    \end{itemize}
+\end{greenbox}
+
+\subsection{Naive Bayes Classifier}
+Naive Bayes is an algorithm for text classification.
+\end{document}
