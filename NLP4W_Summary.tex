@@ -206,7 +206,7 @@ border=3mm
     },
     magbox/.style={
         colback=magenta!5!white,
-        colframe=magenta!80!white,
+        colframe=magenta!85!black,
         boxrule=1pt,
         fonttitle=\bfseries,
         width=\textwidth,
@@ -221,10 +221,29 @@ border=3mm
     title=\IfValueTF{#1}{#1}{},
 }
 
-\newtcolorbox[]{magentabox*}[1][]{magbox}
-\newtcolorbox[]{magentabox}[1][]{
+\newtcolorbox[]{magbox*}[1][]{magbox}
+\newtcolorbox[]{magbox}[1][]{
     magbox,
     title=\IfValueTF{#1}{#1}{},
+}
+\newtcolorbox[]{smallmagbox}[1][]{
+    magbox,
+    hbox,
+    title=\IfValueTF{#1}{#1}{},
+    }
+\newtcolorbox[]{smallmagbox*}[1][]{
+    magbox,
+    hbox,
+}
+
+\newtcbox{\inlmagbox}{
+    magbox,
+    boxsep=0pt, left=6pt, right=6pt, top=2pt, bottom=2pt,
+    arc=5pt, 
+    before upper={\rule[-3pt]{0pt}{10pt}},
+    on line,
+    before=\space,
+    after=\space,
 }
 
 \usepackage{parskip} % Removes the indentation of the first line of new section
