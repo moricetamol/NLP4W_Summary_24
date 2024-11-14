@@ -11,7 +11,7 @@
 \section{Text Classification}
 Text classification is an important part of NLP4Web. It has many applications and it's especially important to classify text to improve the date of the models.
 
-\begin{greenbox}
+\begin{defbox}
     [Examples of Text Classification]
     \begin{itemize}
         \item Spam Detection
@@ -21,11 +21,11 @@ Text classification is an important part of NLP4Web. It has many applications an
         \item Authorship Identification
         \item Language Identification
     \end{itemize}
-\end{greenbox}
+\end{defbox}
 
 Some approaches to text classification are:
 
-\begin{greenbox}
+\begin{defbox}
     [Approaches to Text Classification]
     \begin{itemize}
         \item Rule-Based
@@ -43,12 +43,12 @@ Some approaches to text classification are:
         \end{itemize}
         \item Unsupervised Learning (Deep Learning)
     \end{itemize}
-\end{greenbox}
+\end{defbox}
 
 \subsection{Naive Bayes Classifier}
 Naive Bayes is an algorithm for text classification. It is based on conditional Probabilites and Bayes Rule. 
 
-\begin{greenbox}
+\begin{defbox}
     [Conditional Probabilites]
     \textit{The probability that something will happen, given that else has already happened}
     \begin{itemize}
@@ -56,64 +56,64 @@ Naive Bayes is an algorithm for text classification. It is based on conditional 
         \item Then 
         \begin{itemize}
             \item $P(O,E)$ describes the probability of both O and E occuring\\
-            \rightarrow \inlmagbox{$P(O,E) = P(O) \times P(E|O)$}
+            \rightarrow \inlmathbox{$P(O,E) = P(O) \times P(E|O)$}
             \item $P(O)$ describes the probability of O occuring\\ 
-            \rightarrow \inlmagbox{$P(O) = \dfrac{P(O,E)}{P(E|O)}$}
+            \rightarrow \inlmathbox{$P(O) = \dfrac{P(O,E)}{P(E|O)}$}
             \item $P(E|O)$ describes the probability of E given O\\
-            \rightarrow \inlmagbox{$P(E|O) = \dfrac{P(E,O)}{P(O)}$}
+            \rightarrow \inlmathbox{$P(E|O) = \dfrac{P(E,O)}{P(O)}$}
         \end{itemize}
     \end{itemize}
-\end{greenbox}
+\end{defbox}
 
-\begin{greenbox}
+\begin{defbox}
     [Bayes Rule]
     Bayes Rule conceptually describes a way to go from $P(E|O)$ to $P(O|E)$
 
     This can be done with the formula:\\
     \begin{center}
-        \begin{smallmagbox*}
+        \begin{smallmathbox*}
             $P(O|E) = \dfrac{P(E|O) \times P(O)}{P(E)}$
-        \end{smallmagbox*}
+        \end{smallmathbox*}
     \end{center}
-\end{greenbox}
+\end{defbox}
 
 Unfortunately, Bayes rule only works for one piece of evidence at a time. For efficient text classification this is not enough, which is what \textbf{Naive Bayes} is for, as it can predict the outcome given multiple pieces of evidence.
 
-\begin{greenbox}
+\begin{defbox}
     [Naive Bayes Classifier]
     Naive Bayes treats each piece of evidence as independent, which makes it easier to calculate (hence why \textit{naive})
     \begin{center}
-        \begin{smallmagbox*}
+        \begin{smallmathbox*}
             $P(O|E1,\ldots,E_n) = \dfrac{P(E_1|O) \times P(E_2|O) \times \ldots \times P(E_n|O) \times P(O)}{P(E_1, E_2, \ldots, E_n)}$
-        \end{smallmagbox*}
+        \end{smallmathbox*}
         
         Easier to remember:
 
-        \begin{smallmagbox*}
+        \begin{smallmathbox*}
             $P(\text{outcome}|\text{evidence}) = \dfrac{P(\text{Likelihood of Evidence}) \times \text{Prior probability of outcome}}{P(\text{Evidence})}$
-        \end{smallmagbox*}
+        \end{smallmathbox*}
     \end{center}
-\end{greenbox}
+\end{defbox}
 
-\begin{greenbox}
+\begin{defbox}
     [Multinomial Naive Bayes Model]
     \begin{center}
-        \begin{smallmagbox*}
+        \begin{smallmathbox*}
             \shortstack{
             $P(c|d) \varpropto P(c) \prod\limits_{1\leq k \leq n_d} P(t_k | c)$ \\
             with Posterior Probability $P(c|d)$ and Prior Probability $P(c)$
             }
-        \end{smallmagbox*}
+        \end{smallmathbox*}
     \end{center}
     The probability of document \textbf{d} belonging to class \textbf{c} is proportional to the product of the probabilities of terms \textbf{t} belonging to \textbf{c} and to the class prior \textbf{P(c)}
 
     \begin{center}
-        \begin{smallmagbox*}
+        \begin{smallmathbox*}
             $c_{\text{map}} = \mathop{\arg\max}\limits_{c \in C}\space \hat{P}(c|d) = \mathop{\arg\max}\limits_{c \in C} \space \hat{P}(c) \prod\limits_{1\leq k \leq n_d} \hat{P}(t_k | c)$ 
-        \end{smallmagbox*}
+        \end{smallmathbox*}
     \end{center}
     The best class \textbf{c} for a document \textbf{d} is found by selecting the class for which the maximum a posteriori (map) probability is maximal.
-\end{greenbox}
+\end{defbox}
 
 So overall Naive Bayes provides us with a method to determine the most probable hypothesis given the data. This is based on probability calculation, therefore no training of a model is necessary.
 
@@ -138,7 +138,7 @@ This yields some problems though. As forwards and backwards can yield different 
 
 A Hidden Markow Model (HMM) is a statistical model of hidden, stochastic state transitions with observable, stochastic output. 
 
-\begin{greenbox}
+\begin{defbox}
     [Hidden Markov Model Key Characteristics]
     \begin{itemize}
         \item Fixed set of states: At each time the model is in exactly one of these states
@@ -147,7 +147,7 @@ A Hidden Markow Model (HMM) is a statistical model of hidden, stochastic state t
         \item Distribution of probabilities for each possible output (Emission probabilities)
     \end{itemize}
     The HMMs purpose is to answer the question: \textbf{For an observed output sequence, what is the (hidden) state sequence that has the highest probability to produce this output?}
-\end{greenbox}
+\end{defbox}
 
 One example of such a model is the following. Here the states are representative of the moods of Darth Vader (wearing a mask, therefore hidden) and the emissions are whether or not he blows up a planet on this day. S represents the starting mood. (Not Blown up (NB), Blown up (BU), Happy (H), Angry (A), Neutral (N))
 
@@ -162,11 +162,11 @@ Assume the following sequence of emissions: Not Blown Up, Blown up, Blown up. Wh
 
 For this we need to consider the transition and emission probabilities on each day. 
 
-For the first day this means, that we need the transition probability from starting point to angry (0.3) and the emission probability of Not Blown up for Angry (0.1). The joint probability on the first day is then given by \inlmagbox{$P(\text{NB}, \text{A})= 0.3 \cdot 0.1 = 0.03$}
+For the first day this means, that we need the transition probability from starting point to angry (0.3) and the emission probability of Not Blown up for Angry (0.1). The joint probability on the first day is then given by \inlmathbox{$P(\text{NB}, \text{A})= 0.3 \cdot 0.1 = 0.03$}
 
-For the second day we need the transition probability from angry to neautral (0.5) and the emission probability of Blown up for Neutral (0.7). The joint probability on the second day is then given by \inlmagbox{$P(\text{BU}, \text{N}) = 0.5 \cdot 0.7 = 0.35$} Additionally this gives us the probability for the sequence \inlmagbox{$P(\{\text{A} \rightarrow \text{N}\}|\{\text{NB}, \text{BU}\}) = 0.03 \cdot 0.35 = 0.0105$}
+For the second day we need the transition probability from angry to neautral (0.5) and the emission probability of Blown up for Neutral (0.7). The joint probability on the second day is then given by \inlmathbox{$P(\text{BU}, \text{N}) = 0.5 \cdot 0.7 = 0.35$} Additionally this gives us the probability for the sequence \inlmathbox{$P(\{\text{A} \rightarrow \text{N}\}|\{\text{NB}, \text{BU}\}) = 0.03 \cdot 0.35 = 0.0105$}
 
-For the third day we need the transition probability from neutral to angry (0.4) and the emission probability of Blown up for Angry (0.9). The probability for the joint probability on the third day is then given by \inlmagbox{$P(\text{BU}, \text{A}) = 0.4 \cdot 0.9 = 0.36$}. \\This also gives us the probability for the sequence \inlmagbox{$P(\{\text{A} \rightarrow \text{N} \rightarrow \text{A}\} | \{\text{NB}, \text{BU}, \text{BU}\}) = 0.03 \cdot 0.35 \cdot 0.36 = 0.00378$}
+For the third day we need the transition probability from neutral to angry (0.4) and the emission probability of Blown up for Angry (0.9). The probability for the joint probability on the third day is then given by \inlmathbox[mathbox]{$P(\text{BU}, \text{A}) = 0.4 \cdot 0.9 = 0.36$}. \\This also gives us the probability for the sequence \inlmathbox{$P(\{\text{A} \rightarrow \text{N} \rightarrow \text{A}\} | \{\text{NB}, \text{BU}, \text{BU}\}) = 0.03 \cdot 0.35 \cdot 0.36 = 0.00378$}
 
 \subsubsection{Hidden Markov Model in NLP}
 We can apply this model to POS tagging. The sequence of qords are the observable emissions, while the POS tags are the hidden states. 
@@ -174,21 +174,21 @@ We also require the transition probabilities between the states, the initial pro
 
 These probability are usually estimated by counting on a tagged training corpus. Hereby the following probabilities are given:
 \begin{center}
-    \begin{smallmagbox}
+    \begin{smallmathbox}
         [Transition probabilities]
         \shortstack{
             $P(t_i | t_{i-1}) = \dfrac{C(t_{i-1}, t_i)}{C(t_{i-1})}$ \\
             $ = \dfrac{\text{How often the first tag is followed by the second tag}}{\text{How often the first tag occured in the labeled corpus}}$
         }
-    \end{smallmagbox}
+    \end{smallmathbox}
     
-    \begin{smallmagbox}
+    \begin{smallmathbox}
         [Emission probabilities]
         \shortstack{
             $P(w_i | t_i) = \dfrac{C(t_i, w_i)}{C(t_i)}$ \\
             $ = \dfrac{\text{How often the word was associated with the tag in the labeled corpus}}{\text{How often the first tag occured in the labeled corpus}}$
         }
-    \end{smallmagbox}
+    \end{smallmathbox}
 \end{center}
 
 \begin{figure}
@@ -199,11 +199,11 @@ These probability are usually estimated by counting on a tagged training corpus.
 \end{figure}
 
 \begin{center}
-    \begin{smallmagbox*}
+    \begin{smallmathbox*}
         \shortstack{
             $\hat{t}^n_1 = \mathop{\arg\max}\limits_{t_1^n}\space P(t_1^n | w_1^n) \approx \mathop{\arg\max}\limits_{t_1^n}\space \prod\limits_{i=1}^n \underbrace{P(w_i | t_i)}_{\text{Emission}}\space \underbrace{P(t_i | t_{i-1})}_{\text{Transition}}$ \\ $\hat{t}^n_1$ is the most likely state sequence given an output sequence
         }
-    \end{smallmagbox*}
+    \end{smallmathbox*}
 \end{center}
 
 How do we calculate this? One solution would be brute force search by enumerating all possible sequences of states. This gives us a complexity of $O(s^m)$ where $s$ is the number of states and $m$ the length of the sequence. 

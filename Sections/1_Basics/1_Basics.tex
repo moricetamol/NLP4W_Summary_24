@@ -11,7 +11,7 @@
 \section{Basics}
 The web itself is an \textbf{application area} of NLP. 
 
-\begin{greenbox}[Web Applications of NLP]
+\begin{defbox}[Web Applications of NLP]
     \begin{itemize}
         \item Search Engines
         \item Spelling Correction
@@ -22,11 +22,11 @@ The web itself is an \textbf{application area} of NLP.
         \item Diachronic Analysis (Use of terms over time)
         \item Text Generators (LLMs)
     \end{itemize}
-\end{greenbox}
+\end{defbox}
 
 The web also lends itself as a \textbf{resource} for improving NLP.
 
-\begin{greenbox}
+\begin{defbox}
     [Web as a resource]
     \begin{itemize}
         \item Web as a corpus
@@ -38,11 +38,11 @@ The web also lends itself as a \textbf{resource} for improving NLP.
         \end{itemize}
         \item Recognising synonyms, paraphrases etc.
     \end{itemize}
-\end{greenbox}
+\end{defbox}
 
 Some typical challenges for NLP are:
 
-\begin{greenbox}
+\begin{defbox}
     [Challenges for NLP]
     \begin{itemize}
         \item Removal of noise (duplicates, typos, etc.)
@@ -51,12 +51,12 @@ Some typical challenges for NLP are:
         \item Error handeling (spelling, grammar, syntax etc.)
         \item "Clean" data (Errors, emoticons, abbreviations,etc.)
     \end{itemize}
-\end{greenbox}
+\end{defbox}
 
 \subsection{Analytic Linguistics in NLP}
 Just how natural language is composed of different linguistic elements which differ from one linguistic viewpoint to the others.
 
-\begin{greenbox}
+\begin{defbox}
     [Linguistic Analysis Levels]
     \begin{itemize}
         \item Phonetics and Phonology
@@ -66,7 +66,7 @@ Just how natural language is composed of different linguistic elements which dif
         \item Semantics
         \item Pragmatics and Discourse
     \end{itemize}
-\end{greenbox}
+\end{defbox}
 
 \subsubsection{Phonetics and Phonology}
 Phonetics and Phonology are Aspects that are concerned with the speech sounds of the language.
@@ -84,7 +84,7 @@ They may be subject to subsequent morphological analysis.
 Example: John likes Mary and Mary likes John. $\rightarrow$ \{"John", "likes", "Mary", "and", "Mary", "likes", "John", "."\}
 
 Tokenization however is not as simple as it seems, as you can't just split them up at specific characters. You also have to take into account the different meanings of the characters, as well as where a token starts and ends.
-\begin{greenbox}
+\begin{defbox}
     [Tokenization Ambiguities]
     \begin{itemize}
         \item Period
@@ -123,7 +123,7 @@ Tokenization however is not as simple as it seems, as you can't just split them 
             \item In some languages signals close connection between words
         \end{itemize}
     \end{itemize}
-\end{greenbox}
+\end{defbox}
 
 Some words can even be split up into two tokens, which means there is no character seperating them. (Stau\textbf{becken} and \textbf{Staub}ecken)
 
@@ -132,7 +132,7 @@ Some words can even be split up into two tokens, which means there is no charact
 Morphology studies word formation and word forms. Hereby a word is defined as made up by \textbf{morphemes}. A morpheme is the \textbf{smallest unit that still carries meaning}.
 Hereby morphemes are split up into two categories: \textbf{bound} and \textbf{free}. 
 
-\begin{greenbox}
+\begin{defbox}
     [Bases and Affixes: Bound and Free Morphemes]
     \begin{itemize}
         \item Free morpheme:
@@ -150,9 +150,9 @@ Hereby morphemes are split up into two categories: \textbf{bound} and \textbf{fr
         \item A minimal free morpheme is called a \textbf{stem}. They carry the main meaning of a word.
         \item Affixes can be added to a stem to alter the meaning
     \end{itemize}
-\end{greenbox}
+\end{defbox}
 
-\begin{greenbox}
+\begin{defbox}
     [Types of Affixes]
     \begin{itemize}
         \item Suffixes
@@ -177,13 +177,13 @@ Hereby morphemes are split up into two categories: \textbf{bound} and \textbf{fr
             \item ge + sagt + t
         \end{itemize}
     \end{itemize}
-\end{greenbox}
+\end{defbox}
 
 Multiple affixes can be added to stem.
 
 For analysis it is important to find morphological related words. This can be done through \textbf{morphological normalization}. Hereby the goal is to find a representation for related words.
 
-\begin{greenbox}
+\begin{defbox}
     [Methods for Morphological Normalization]
     \begin{itemize}
         \item Stemming
@@ -224,12 +224,12 @@ For analysis it is important to find morphological related words. This can be do
             \end{itemize}
         \end{itemize}
     \end{itemize}
-\end{greenbox}
+\end{defbox}
 
 \subsubsection{Syntax}
 Syntax refers to the order in which words appear in or the way in which words are arranged. There is a theoretical infinite number of ways in which words can be arranged together, we can discern the meaning anyway.
 
-\begin{greenbox}
+\begin{defbox}
     [Parts of Speech]
     \begin{itemize}
         \item N: Noun \rightarrow chair, bird, etc.
@@ -241,7 +241,7 @@ Syntax refers to the order in which words appear in or the way in which words ar
         \item Det: Determiner \rightarrow the, a, etc.
         \item Intj: Interjection \rightarrow oh, wow, etc.
     \end{itemize}
-\end{greenbox}
+\end{defbox}
 
 We can assign parts of speech to each word in a corpus (POS tagging). Using these we can use Lemmatization to get the base form of a word.
 
